@@ -7,7 +7,7 @@ public class movement : MonoBehaviour
     public float rotationSpeed = 10.0f;
     public float speed = 10.0f;
     public GameObject Maze;
-        
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +20,11 @@ public class movement : MonoBehaviour
         float translation = Input.GetAxis("Vertical") * speed;
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
 
-        //translation *= Time.deltaTime;
-        //rotation *= Time.deltaTime;
+        translation *= Time.deltaTime;
+        rotation *= Time.deltaTime;
 
 
-        Maze.transform.rotation = Quaternion.Euler(translation, rotation, 0);
+        Maze.transform.rotation = Maze.transform.rotation * Quaternion.Euler(translation, rotation, 0);
                 
 
     }
